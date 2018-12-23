@@ -59,6 +59,12 @@ call plug#end()
 " Run xrdb when Xdefaults or Xresources is updated
 	autocmd BufWritePost ~/.Xresources, ~/.Xdefaults !xrdb %
 
+" Compile document
+	map <leader>c :w! \| !compiler <c-r>%<CR><CR>
+
+" Open corresponding .pdf/.html or preview
+	map <leader>p :!opout <c-r>%<CR><CR>
+
 " PLUGIN SETTINGS
 " ---------------
 
