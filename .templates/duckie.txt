@@ -1,0 +1,37 @@
+*duckie.txt*	For any version	Last change: 2018-12-24
+
+HELPFUL SHORTCUTS~
+=================~
+
+<Leader>u - uses urlscan to open a link
+<Leader>c - compile document
+<Leader>p - view compiled document
+
+TEMPLATE SHORTCUTS~
+==================~
+
+,screen screenplay template
+,jekyll Jekyll website md template
+
+PLUGIN HELP~
+===========~
+
+:GrammarousCheck to check grammar
+:GrammarousReset to reset
+q quits info window
+<CR> move to location of error
+f fixes error
+n next error
+p previous error
+? help
+
+<Leader>cs Interactive thesaurus
+
+TODO~
+====~
+
+Add Jekyll to compile script and view.
+Add auto date on templates
+Languagetool does not work, but grammar checker which uses languagetool does...
+
+vim:tw=78:ts=8:ft=help:norl:
