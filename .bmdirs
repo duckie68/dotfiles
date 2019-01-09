@@ -1,0 +1,13 @@
+# You can add comments to these files with #
+h	~/
+dos	~/backup/DoS2_Linux
+dev	~/dev
+d	~/Documents
+D	~/Downloads
+b	~/Ebooks
+m	~/Music
+pp	~/Pictures
+vv	~/Videos
+cf	~/.config
+sc	~/.scripts
+mn	/mnt

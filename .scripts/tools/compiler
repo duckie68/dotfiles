@@ -41,7 +41,8 @@ case "$file" in
 	*\.mom) refer -PS -e "$file" | groff -mom -kejpt -T pdf > "$base".pdf ;;
 	*\.rmd) echo "require(rmarkdown); render('$file')" | R -q --vanilla ;;
 	*\.tex) textype "$file" ;;
-	*\.md) pandoc "$file" --pdf-engine=xelatex -o "$base".pdf ;;
+#	*\.md) pandoc -s -o "$base".pdf "$file" ;;
+	*\.md) pandoc "$file" -o "$base".pdf ;;
 	*\.fountain) node ~/dev/afterwriting-labs/awc.js --source "$file" --pdf "$base".pdf --overwrite --config ~/.templates/screenplay.json ;;
 	*config.h) make && sudo make install ;;
         *\.c) cc "$file" -o "$base" && "$base" ;;

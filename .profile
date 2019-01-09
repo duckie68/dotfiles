@@ -9,9 +9,17 @@ export BROWSER="firefox"
 export READER="zathura"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/.referbib"
+export GOPATH=$HOME/.go
+export PATH=$PATH:~/bin:$GOPATH/bin:~/.local/bin
+export PATH=$PATH:~/.gem/ruby/2.5.0/bin
+export PATH=$PATH:~/.texlive/2018/bin/x86_64-linux
+export PATH="$HOME/.node_modules_global/bin:$PATH"
+export MANPATH=$MANPATH:/home/duckie68/.texlive/2018/texmf-dist/doc/man
+export INFOPATH=$INFOPATH:/home/duckie68/.texlive/2018/texmf-dist/doc/info
 # PIX is here I have LARBS keep icons. Subject to change, hence a variable.
 export PIX="$HOME/.scripts/pix"
 export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
+export VISUAL="nvim"
 
 # less/man colors
 export LESS=-R
@@ -28,7 +36,8 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 
 # Start graphical server if i3 not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+# [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 
 # Switch escape and caps and use wal colors if tty:
 sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
+export TASTE_API_KEY="326644-taste-EG6OLQPN"

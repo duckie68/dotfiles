@@ -10,10 +10,11 @@ shopt -s autocd #Allows you to cd into directory merely by typing the directory 
 HISTSIZE= HISTFILESIZE= # Infinite history.
 
 # Setting Bash prompt. Capitalizes username and host if root user (my root user uses this same config file).
-if [ "$EUID" -ne 0 ]
-	then export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
-	else export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]ROOT\[$(tput setaf 2)\]@\[$(tput setaf 4)\]$(hostname | awk '{print toupper($0)}') \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
-fi
+# if [ "$EUID" -ne 0 ]
+# 	then export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+# 	else export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]ROOT\[$(tput setaf 2)\]@\[$(tput setaf 4)\]$(hostname | awk '{print toupper($0)}') \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+# fi
+
 
 export GPG_TTY=$(tty)
 
@@ -49,7 +50,19 @@ alias yt="youtube-dl --add-metadata -ic" # Download video link
 alias yta="yt -x -f bestaudio/best" # Download only audio
 alias YT="youtube-viewer"
 
+# If inside a Neovim terminal, use nvr
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+	if [ -x "$(command -v nvr)" ]; then
+		alias nvim=nvr
+	else
+		alias nvim='echo "No nesting!"'
+	fi
+fi
+
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
 vf() { $EDITOR $(fzf) ;}
 source /home/duckie68/.shortcuts
 alias dotfile='/usr/bin/git --git-dir=/home/duckie68/.cfg/ --work-tree=/home/duckie68'
+HISTCONTROL=ignoreboth
+# Run twolfson/sexy-bash-prompt
+. ~/.bash_prompt
